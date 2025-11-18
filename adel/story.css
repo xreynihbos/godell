@@ -1,0 +1,22 @@
+.story-section {
+    margin: 50px 0;
+    padding: 20px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+    display: none; /* tersembunyi awalnya */
+}
+
+.story-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover effect */
+.story-section:hover {
+    transform: scale(1.02);
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cerita  Adel</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="story.css">
+</head>
+<body>
+
+<div class="container">
+    <img src="https://takenupload.com/691c2ff451c82" alt="Adel" class="profile-img">
+    <h1>Cerita Tentang Adel</h1>
+
+    <div class="story-section active">
+        <h2>Awal Perjalanan</h2>
+        <p>Adel lahir di sebuah kota kecil dengan rasa ingin tahu yang besar. Sejak kecil, ia suka menjelajahi dunia sekitar, menulis cerita imajinatif, dan belajar hal-hal baru setiap hari.</p>
+    </div>
+
+    <div class="story-section">
+        <h2>Masa Belajar</h2>
+        <p>Seiring bertumbuh, Adel menemukan kecintaannya pada seni dan teknologi. Ia mulai bereksperimen dengan proyek-proyek kecil, dari menggambar ilustrasi hingga membuat halaman web sederhana.</p>
+    </div>
+
+    <div class="story-section">
+        <h2>Hari Ini</h2>
+        <p>Sekarang, Adel menggabungkan kreativitas dan teknologi untuk membuat pengalaman digital yang menyenangkan dan inspiratif. Setiap karya menjadi bagian dari cerita hidupnya yang terus berkembang.</p>
+    </div>
+
+    <div class="story-section">
+        <h2>Mimpi dan Visi</h2>
+        <p>Adel berharap bisa menciptakan dunia digital penuh cerita, di mana setiap orang dapat merasakan pengalaman yang menyentuh hati. Hidup adalah rangkaian kisah yang terus ditulis, dan karyanya menjadi bagian dari kisah itu.</p>
+    </div>
+
+    <div class="controls">
+        <button id="prevBtn">Previous</button>
+        <button id="nextBtn">Next</button>
+    </div>
+
+    <div class="progress-bar">
+        <div id="progress"></div>
+    </div>
+</div>
+
+<script>
+const sections = document.querySelectorAll('.story-section');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+const progress = document.getElementById('progress');
+let currentIndex = 0;
+
+function updateSections() {
+    sections.forEach((section, idx) => {
+        section.classList.remove('active');
+        if(idx === currentIndex) section.classList.add('active');
+    });
+    // Update progress bar
+    progress.style.width = ((currentIndex + 1) / sections.length * 100) + '%';
+}
+
+nextBtn.addEventListener('click', () => {
+    if(currentIndex < sections.length - 1){
+        currentIndex++;
+        updateSections();
+    } else {
+        alert("Kamu telah sampai di akhir cerita!");
+    }
+});
+
+prevBtn.addEventListener('click', () => {
+    if(currentIndex > 0){
+        currentIndex--;
+        updateSections();
+    }
+});
+
+// Inisialisasi progress
+updateSections();
+</script>
+
+</body>
+</html>
